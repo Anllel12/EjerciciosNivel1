@@ -27,7 +27,7 @@ public class Isograma {
         palabra=palabra.toUpperCase();
         
         for(int i=0; i<palabra.length()-1; i++){
-            for(int j=1; j<palabra.length(); j++){
+            for(int j=1; j<palabra.length(); j=j+i){
                 if(palabra.charAt(i)==palabra.charAt(j)){
                     isograma=true;
                 }

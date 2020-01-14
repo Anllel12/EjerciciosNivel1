@@ -26,23 +26,22 @@ public class Acronimo {
     
     public void acronimo(String palabra){
         
-        String auxiliar="";
+        String auxiliar="";//añodo las letras del acronimo
         
         if(palabra.charAt(0)!=' '){
             auxiliar=auxiliar+palabra.charAt(0);
         }
         for(int i=1; i<palabra.length()-1; i++){
-            if(palabra.charAt(i)==' '){
+            if(palabra.charAt(i)==' '){//si ahi un espacio entra 
                 compare(palabra.substring(i+1, i+2));
                 compare(palabra.substring(i+1, i+3));
-                compare(palabra.substring(i+1, i+4));
-                
+                compare(palabra.substring(i+1, i+4));               
             }        
         }
     }
     
     public void compare(String frase){
-        for(int j=0; j<frase.length(); j++){
+        for(int j=0; j<frase.length(); j++){//compara la substrin con el array
             if(frase.equalsIgnoreCase(noCompare[0]) || frase.equalsIgnoreCase(noCompare[1]) || frase.equalsIgnoreCase(noCompare[2]) || frase.equalsIgnoreCase(noCompare[3]) || frase.equalsIgnoreCase(noCompare[4])){
                 igual=true;
             }

@@ -35,12 +35,10 @@ public class Isograma {
             }
         }
         if(isograma ==true){//si ha entrado en el if anterior imprime una cosa u otra
-            System.out.println("No es un isograma."); 
+            System.out.println(palabra + " No es un isograma."); 
         } 
         else{
-            System.out.println("Es un isograma."); 
+            System.out.println(palabra + " Es un isograma."); 
         }   
-        System.out.println(isograma);
-        System.out.println(palabra);
     }
 }

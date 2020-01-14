@@ -15,9 +15,9 @@ public class Arrays {
         System.out.println(ejercicio.maximos(ejercicio.listaNumeros));
     }
     
-    int[] listaNumeros={50, 31, 27, 2, 5, 99};
+    int[] listaNumeros={50, 31, 27, 2, 5, 99};//Arrays de int
     
-    public int maximos(int[] lista){
+    public int maximos(int[] lista){//te da el int mas alto
         int auxiliar=lista[0];
         for(int i=0; i<lista.length; i++){
             if(auxiliar<lista[i]){

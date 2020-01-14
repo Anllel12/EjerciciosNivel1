@@ -15,6 +15,7 @@ public class Isograma {
         ejercicios.isograma("pala");
         ejercicios.isograma("arroz");
         ejercicios.isograma("igor");
+        ejercicios.isograma("fernando");
     }
     
     public void isograma(String palabra){
@@ -26,18 +27,17 @@ public class Isograma {
         
         palabra=palabra.toUpperCase();
         
-        for(int i=0; i<palabra.length()-1; i++){
-            for(int j=i; j<palabra.length(); j++){
-                if(palabra.charAt(i)==palabra.charAt(j)){
+        for(int i=0; i<palabra.length()-1; i++){//compara cada letra de la palabra
+            for(int j=i+1; j<palabra.length(); j++){
+                if(palabra.charAt(i)==palabra.charAt(j)){//si los caracteres son iguales entra
                     isograma=true;
-                    j++;
                 }
             }
         }
-        if(isograma ==true){
+        if(isograma ==true){//si ha entrado en el if anterior imprime una cosa u otra
             System.out.println("No es un isograma."); 
         } 
-        if(isograma ==false){
+        else{
             System.out.println("Es un isograma."); 
         }   
         System.out.println(isograma);

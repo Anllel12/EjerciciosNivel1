@@ -1,9 +1,12 @@
 
 package ejerciciosnivel1;
 
+import java.util.Arrays;
+
 /**
  *
  * @author Angel Esquinas
+ * 
  */
 public class ArraysMaximos {
     
@@ -13,16 +16,22 @@ public class ArraysMaximos {
     public static void main(String[] args) {
         ArraysMaximos ejercicio = new ArraysMaximos();
         
-        System.out.println("ejerciciosnivel1.ArraysMaximos.main()");
+        System.out.println(Arrays.toString(ejercicio.maximos(ejercicio.listaNumeros)));
     }
     
-    int[] listaNumeros={50, 31, 27, 2, 5, 99};
+    int[] listaNumeros={99, 31, 27, 60, 5, 70};//aray de ints
     
     public int[] maximos(int[] lista){
-        int [] arrayMaximos={lista[0], lista[0]};
+        
+        int [] arrayMaximos={lista[0], lista[1]};//te da los dos integers mas altos
+        
         for(int i=0; i<lista.length; i++){
-            if(auxiliar<lista[i]){
-                auxiliar=lista[i];
+            if(arrayMaximos[0]<lista[i]){
+                arrayMaximos[1]=arrayMaximos[0];
+                arrayMaximos[0]=lista[i];
+            }
+            else if(arrayMaximos[1]<lista[i] && lista[i]!=arrayMaximos[0]){//por si el primer numero es el mas alto
+                arrayMaximos[1]=lista[i];              
             }
         }
         return arrayMaximos;

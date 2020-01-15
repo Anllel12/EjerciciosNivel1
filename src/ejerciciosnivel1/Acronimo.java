@@ -15,8 +15,8 @@ public class Acronimo {
         
         Acronimo ejercicios=new Acronimo();
         
-        //ejercicios.acronimo("Alta Velocidad Española");
-        //ejercicios.acronimo("Objeto Volador No Identificado");
+        ejercicios.acronimo("Alta Velocidad Española");
+        ejercicios.acronimo("Objeto Volador No Identificado");
         ejercicios.acronimo("Tecnología de la Información y de las Comunicaciones");
     }
     
@@ -40,8 +40,6 @@ public class Acronimo {
                 else if(igual==true){//si el substring es igual a alguna palabra del array suma al vaor de "i" para que avance y cambia la booleana
                     i++;
                     igual=false;
-                    System.out.println("ha entrado");
-                    System.out.println(igual);
                 }
                 if(igual==false){//si el substring no esta en el array vuelve a comparar
                     compare(palabra.substring(i+1, i+4));
@@ -49,34 +47,22 @@ public class Acronimo {
                 else if(igual==true){//si el substring es igual a alguna palabra del array suma al vaor de "i" para que avance y cambia la booleana
                     i+=2;
                     igual=false;
-                    System.out.println("ha entrado");
-                    System.out.println(igual);
                 }
                 if(igual==false){//despues de comparar tres veces y al no ser ninguna true es porque no es una palabra del las cuales no ahi que leer entonces la pacamos al Acronimo
                     auxiliar=auxiliar+palabra.charAt(i+1);
+                    System.out.println(auxiliar);
                 }
-                else if(igual==true){//si por ultimo es una de las palabra del array saltamos la palabra y seguimos 
+                else if(igual==true){//si por ultimo es una de las palabra del array saltamos la palabra y seguimos
                     i+=3;
                     igual=false;
-                    System.out.println("ha entrado");
-                    System.out.println(igual);
-                    
                 }
-                System.out.println(Integer.toString(i));
-                
             }
-            
         }
-        
     }
     
     public void compare(String frase){//compara el substring con las palabras del array
-            if(frase.equalsIgnoreCase(noCompare[0]) || frase.equalsIgnoreCase(noCompare[1]) || frase.equalsIgnoreCase(noCompare[2]) || frase.equalsIgnoreCase(noCompare[3]) || frase.equalsIgnoreCase(noCompare[4])){
-                igual=true;
-            }
-        System.out.println(frase);
-        System.out.println(igual);
-        System.out.println(auxiliar);
-        
+        if(frase.equalsIgnoreCase(noCompare[0]) || frase.equalsIgnoreCase(noCompare[1]) || frase.equalsIgnoreCase(noCompare[2]) || frase.equalsIgnoreCase(noCompare[3]) || frase.equalsIgnoreCase(noCompare[4])){
+            igual=true;
+        }
     }
 }

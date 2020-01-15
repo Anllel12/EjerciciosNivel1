@@ -22,32 +22,61 @@ public class Acronimo {
     
     String[] noCompare= {"y", "e", "de", "la", "las"};
     
+    String auxiliar="";//añodo las letras del acronimo
+    
     boolean igual=false;
     
     public void acronimo(String palabra){
         
-        String auxiliar="";//añodo las letras del acronimo
-        
         if(palabra.charAt(0)!=' '){
             auxiliar=auxiliar+palabra.charAt(0);
         }
-        for(int i=1; i<palabra.length()-1; i++){
-            if(palabra.charAt(i)==' '){//si ahi un espacio entra 
+        for(int i=1; i<palabra.length(); i++){
+            if(palabra.charAt(i)==' '){//si ahi un espacio entra
                 compare(palabra.substring(i+1, i+2));
-                compare(palabra.substring(i+1, i+3));
-                compare(palabra.substring(i+1, i+4));               
-            }        
+                if(igual==false){//si el substring no esta en el array vuelve a comparar
+                    compare(palabra.substring(i+1, i+3));
+                }
+                else if(igual==true){//si el substring es igual a alguna palabra del array suma al vaor de "i" para que avance y cambia la booleana
+                    i++;
+                    igual=false;
+                    System.out.println("ha entrado");
+                    System.out.println(igual);
+                }
+                if(igual==false){//si el substring no esta en el array vuelve a comparar
+                    compare(palabra.substring(i+1, i+4));
+                }
+                else if(igual==true){//si el substring es igual a alguna palabra del array suma al vaor de "i" para que avance y cambia la booleana
+                    i+=2;
+                    igual=false;
+                    System.out.println("ha entrado");
+                    System.out.println(igual);
+                }
+                if(igual==false){//despues de comparar tres veces y al no ser ninguna true es porque no es una palabra del las cuales no ahi que leer entonces la pacamos al Acronimo
+                    auxiliar=auxiliar+palabra.charAt(i+1);
+                }
+                else if(igual==true){//si por ultimo es una de las palabra del array saltamos la palabra y seguimos 
+                    i+=3;
+                    igual=false;
+                    System.out.println("ha entrado");
+                    System.out.println(igual);
+                    
+                }
+                System.out.println(Integer.toString(i));
+                
+            }
+            
         }
+        
     }
     
-    public void compare(String frase){
-        for(int j=0; j<frase.length(); j++){//compara la substrin con el array
+    public void compare(String frase){//compara el substring con las palabras del array
             if(frase.equalsIgnoreCase(noCompare[0]) || frase.equalsIgnoreCase(noCompare[1]) || frase.equalsIgnoreCase(noCompare[2]) || frase.equalsIgnoreCase(noCompare[3]) || frase.equalsIgnoreCase(noCompare[4])){
                 igual=true;
             }
-        }
         System.out.println(frase);
         System.out.println(igual);
-        System.out.println(Arrays.toString(noCompare));
+        System.out.println(auxiliar);
+        
     }
 }
